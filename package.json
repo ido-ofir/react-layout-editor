@@ -1,0 +1,47 @@
+{
+  "name": "react-layout-editor",
+  "version": "1.0.0",
+  "description": "Visual layout editor for react components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "vendor": ".\\node_modules\\.bin\\webpack --mode development --progress --hide-modules --config webpack.dll.js",
+    "start": ".\\node_modules\\.bin\\webpack --mode development --watch --progress --hide-modules --config=./webpack.config.js",
+    "production": ".\\node_modules\\.bin\\webpack --mode production --config=./webpack.config.js",
+    "storybook": "start-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ido-ofir/react-layout-editor.git"
+  },
+  "keywords": [
+    "react",
+    "layout",
+    "editor"
+  ],
+  "author": "ido-ofir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ido-ofir/react-layout-editor/issues"
+  },
+  "homepage": "https://github.com/ido-ofir/react-layout-editor#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/plugin-proposal-do-expressions": "^7.6.0",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.5.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/plugin-proposal-pipeline-operator": "^7.5.0",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "file-loader": "^5.0.2",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9"
+  }
+}
