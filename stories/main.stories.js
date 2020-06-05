@@ -16,7 +16,12 @@ class EditorStory extends React.Component{
                 type: 'A',
                 children: [
                     {
-                        type: 'B'
+                        type: 'B',
+                        children: [
+                            {
+                                type: 'B'
+                            }
+                        ]
                     }
                 ]
             }
