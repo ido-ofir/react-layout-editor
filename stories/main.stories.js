@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactLayoutEditor from '../source';
+import { ReactLayoutEditor } from '../source';
 
 export default { title: 'ReactEditor' };
 
