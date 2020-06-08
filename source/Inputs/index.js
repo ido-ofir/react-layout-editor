@@ -28,7 +28,7 @@ class Input extends Component{
 
     renderInput = type => {
         switch (type) {
-            case 'select':
+            case 'Select':
                 return (
                     <select name={ this.props.name  } >
                         {
@@ -37,23 +37,37 @@ class Input extends Component{
                     </select>
                 );
             
-            case 'boolean':
+            case 'Boolean':
                 return (
-                    <label className={ 'switch' }>
+                    <label className={'switch'} style={{ boxShadow: '0px 3px 6px -4px rgba(0,0,0,0.5)' }}> 
                         <input checked={ this.state.sisChecked } type={ 'checkbox' } onChange={ e => { this.onChange('switch', e) } } />
                         <span className={ 'slider' }></span>
                     </label>
                 ) 
-
-            default:
+            case 'String':
                 return (
                     <input
-                        type={type}
+                        type={'text'}
                         name={ this.props.name }
+                        style={{ boxShadow: '0px 3px 6px -4px rgba(0,0,0,0.5)' }}
                         onChange={ e => { this.onChange('input', e) }}
                         value={this.state.value} />
                 )
+            case 'Number':
+                return (
+                    <input
+                        type={'number'}
+                        name={ this.props.name }
+                        style={{ boxShadow: '0px 3px 6px -4px rgba(0,0,0,0.5)' }}
+                        onChange={ e => { this.onChange('input', e) }}
+                        value={this.state.value} />
+                )
+            default:
+                return null;
         }
+
+
+        return input(inputType)
     }
 
     render() {

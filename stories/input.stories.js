@@ -16,12 +16,12 @@ export const WithAction = () => {
 
     const getSelect = () => {
         const options = [
-            'text',
-            'number',
-            'select',
-            'boolean'
+            'Select',
+            'Boolean',
+            'String',
+            'Number'
         ]
-        return select('Input Type', options, 'text');
+        return select('Input Type', options, 'String');
     }
     
     // let {  onChange, label, description } = this.props;
