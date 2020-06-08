@@ -16,7 +16,6 @@ export default class Drop extends React.Component{
         }
         else{
             let text = e.dataTransfer.getData(type);
-            console.log(text)
             try{
                 let data = JSON.parse(text);
                 onDrop && onDrop(data);

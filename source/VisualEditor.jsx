@@ -7,32 +7,31 @@ export default class VisualEditor extends React.PureComponent{
         this.listeners = {};
         this.hovered = null;
         this.selected = null;
-        top.editor = this;
     }
-    set = (path, value) => {
-        
+    componentDidMount(){
+        this.el.addEventListener('dragleave', this.onDragLeave, false);
+    }
+    componentWillUnmount(){
+        this.el.removeEventListener('dragleave', this.onDragLeave, false);
+    }
+    onDragLeave = (e) => {
+        if(!this.el.contains(e.relatedTarget)){
+            this.onHover();
+        }
     };
     onHover = (key) => {
-        let a ,b = this.listeners[key];
-        if(this.hovered){
-            if(this.hovered === key){
-                return;
-            }
-            a = this.listeners[this.hovered];
-        }
+        if(this.hovered === key){ return; }
+        let a = this.listeners[this.hovered];
+        let b = this.listeners[key];
         this.hovered = key;
         a && a();
         b && b();
     };
     onSelect = (key, value) => {
-        let a ,b = this.listeners[key];
+        if(this.selected === key){ return; }
+        let a = this.listeners[this.selected];
+        let b = this.listeners[key];
         let onSelect = this.props.onSelect;
-        if(this.selected){
-            if(this.selected === key){
-                return;
-            }
-            a = this.listeners[this.selected];
-        }
         this.selected = key;
         a && a();
         b && b();
@@ -47,7 +46,7 @@ export default class VisualEditor extends React.PureComponent{
     render(){
         let { value, onChange, components, editors, style } = this.props;
         return (
-            <div style={{ height: '100%', width: '100%', position: 'relative', ...style }}>
+            <div ref={ el => this.el = el } style={{ height: '100%', width: '100%', position: 'relative', ...style }}>
                 <Widget 
                     value={ value } 
                     onChange={ onChange } 
