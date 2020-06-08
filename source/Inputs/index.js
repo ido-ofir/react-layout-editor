@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { PureComponent, Component } from 'react';
 import './switch.scss'
-class Input extends Component{
+
+class Input extends PureComponent{
     constructor(props) {
         super(props);
         this.state = {

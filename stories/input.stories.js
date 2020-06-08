@@ -3,10 +3,26 @@ import { Input } from '../source';
 import { action, actions } from '@storybook/addon-actions';
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 
+const wrap = { 
+    display: 'flex', 
+    flexDirection: 'column', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    left: 0,
+    bottom: 0,
+    fontFamily: 'Ubuntu Mono'
+}
+
 export default { 
     title: 'Inputs', 
     component: Input,
-    decorators: [withKnobs] 
+    decorators: [
+        withKnobs, 
+        story => <div style={ wrap }>{story()}</div>
+    ] 
 };
 
 
