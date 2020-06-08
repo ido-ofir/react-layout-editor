@@ -56,7 +56,6 @@ let utils = {
                 // if the target is an object, 
                 // return a new object
                 // with the new property value under 'key'
-                console.log('999', key)
                 return {
                     ...target,
                     [key]: utils.set(

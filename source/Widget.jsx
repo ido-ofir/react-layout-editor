@@ -41,8 +41,7 @@ export default class Widget extends React.PureComponent{
         el.appendChild(this.portal);
         el.addEventListener('mouseenter', this.onMouseEnter, false);
         el.addEventListener('mouseleave', this.onMouseLeave, false);
-        el.addEventListener('dragenter', this.onDragEnter, false);
-        el.addEventListener('dragleave', this.onDragLeave, false);
+        el.addEventListener('dragover', this.onDragOver, false);
         el.addEventListener('click', this.onClick, false);
         this.el = el;
     }
@@ -59,17 +58,11 @@ export default class Widget extends React.PureComponent{
         let { editor, path } = this.props;
         editor.onHover((path || []).join('/'));
     };
-    onDragEnter = (e) => {
+    onDragOver = (e) => {
         let { editor } = this.props;
-        console.log('enter', e.target)
+        e.preventDefault();
+        e.stopPropagation();
         editor.onHover(this.key);
-    };
-    onDragLeave = (e) => {
-        console.log('leave', e.target)
-        let { editor, path } = this.props;
-        if(!this.el.contains(e.relatedTarget)){
-            editor.onHover((path || []).join('/'));
-        }
     };
     onClick = (e) => {
         let { editor, value } = this.props;
