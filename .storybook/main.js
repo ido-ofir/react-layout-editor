@@ -1,9 +1,12 @@
 
 let path = require('path');
+
 module.exports = {
     stories: ['../stories/**/*.stories.[tj]s'],
     webpackFinal: async (config, { configType }) => {
-        
+
+      config.resolve.alias.ui = path.resolve(__dirname, '../ui');
+
         // config.module.rules.push({
         //     test: /(\.js|\.jsx)$/,
         //     exclude: /node_modules$/,

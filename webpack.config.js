@@ -3,7 +3,7 @@ const entry = path.resolve(__dirname, 'source/index.js');
 
 const publicPath = '/build/';
 const distPath = path.join(__dirname, 'dist');
-
+console.log(1231233333333333333333333333333333333333333333333333333);
 module.exports = function (env) {
     let config = {
         entry: entry,
@@ -83,7 +83,8 @@ module.exports = function (env) {
             ]
         },
         resolve: {
-            modules: ["node_modules_local", "node_modules"]
+            modules: ["node_modules_local", "node_modules"],
+            alias: path.resolve(__dirname, 'ui')
         },
 
         watchOptions: {
