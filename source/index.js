@@ -1,4 +1,4 @@
-import ReactLayoutEditor from './ReactLayoutEditor/ReactLayoutEditor.jsx';
+import ReactLayoutEditor from './ReactLayoutEditor.jsx';
 import Input from './Inputs'
 export {
     Input,
